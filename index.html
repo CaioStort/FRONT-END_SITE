@@ -3,126 +3,448 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flamengo: Uma Paixão Rubro-Negra</title>
+    <title>Flamengo - O Mais Querido do Brasil</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚽</text></svg>" type="image/svg+xml">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.7;
+        /* Importação de fonte do Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        /* Variáveis CSS para cores */
+        :root {
+            --red-flamengo: #CE0E2D; /* Vermelho principal do Flamengo */
+            --black-flamengo: #1A1A1A; /* Preto do Flamengo */
+            --white: #FFFFFF;
+            --light-gray: #F4F4F4;
+            --dark-gray: #333333;
+        }
+
+        /* Reset básico e tipografia */
+        * {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #fdecea, #e74c3c); /* Gradiente vermelho claro para escuro */
-            color: #333;
-            /*alinhamento do container para ocupar a tela toda */
+            box-sizing: border-box;
         }
-        .content-wrapper { /*centralizar texto sem "folha" */
-            max-width: 800px;
-            margin: 0 auto; /* Centraliza o conteúdo */
-            padding: 40px 20px; /* Adiciona padding para as bordas */
-            background-color: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente para o texto */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra para destacar */
-            border-radius: 12px;
-            margin-top: 40px; /* Espaçamento superior */
-            margin-bottom: 40px; /* Espaçamento inferior */
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
         }
-        h1, h2 {
-            color: #c00; /* Vermelho Flamengo */
-            text-align: center;
-            margin-bottom: 20px;
-            font-weight: bold;
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
         }
-        h1 {
+
+        a {
+            text-decoration: none;
+            color: var(--red-flamengo);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: var(--black-flamengo);
+            color: var(--white);
+            padding: 10px 0;
+            border-bottom: 5px solid var(--red-flamengo);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap; /* Permite que os itens quebrem linha */
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 10px 0;
+        }
+
+        /* O logo será apenas texto ou um ícone SVG simples agora */
+        header .logo-text {
             font-size: 2.5em;
-            letter-spacing: 1px;
-            padding-top: 20px; /* Espaçamento superior para o título */
+            font-weight: 700;
+            color: var(--white);
+            margin-right: 15px;
         }
-        h2 {
-            font-size: 1.8em;
-            border-bottom: 3px solid #c00;
-            padding-bottom: 15px;
+
+        header h1 {
+            font-size: 2.2em;
+            color: var(--white);
+            flex-grow: 1; /* Permite que o h1 ocupe espaço disponível */
+            text-align: center;
+        }
+
+        header nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px; /* Espaço para nav em telas menores */
+        }
+
+        header nav ul li {
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            color: var(--white);
+            font-weight: 700;
+            padding: 5px 10px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        header nav ul li a:hover {
+            color: var(--red-flamengo);
+            background-color: var(--white);
+        }
+
+        /* Seções de Conteúdo */
+        .content-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .content-section h2 {
+            font-size: 2.5em;
+            color: var(--red-flamengo);
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--black-flamengo);
+        }
+
+        .content-section p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .content-section ul {
+            margin-top: 20px;
+            text-align: left;
+            display: inline-block; /* Centraliza a lista */
+        }
+
+        .content-section ul li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .bg-light {
+            background-color: var(--light-gray);
+        }
+
+        /* Seção Hero */
+        .hero-section {
+            /* Fundo agora é um gradiente simples já que as imagens foram removidas */
+            background: linear-gradient(to right, var(--red-flamengo), var(--black-flamengo));
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-section h2 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .hero-section p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* O botão .btn foi removido, então não precisa de estilo para ele */
+
+        /* Grade de Jogadores (Elenco) */
+        .player-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
             margin-top: 40px;
         }
-        p {
-            margin-bottom: 25px;
-            font-size: 1.1em;
-            color: #555;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        ul li {
-            padding: 10px 0;
-            border-bottom: 1px dashed #eee;
-        }
-        ul li:last-child {
-            border-bottom: none;
-        }
-        strong {
-            color: #c00;
-            font-weight: bold;
-        }
-        footer {
+
+        .player-card {
+            background-color: var(--white);
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
             text-align: center;
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 2px solid #eee;
-            font-size: 0.9em;
-            color: #777;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .section-divider {
-            border: 0;
-            height: 2px;
-            background: #ddd;
-            margin: 30px 0;
+
+        .player-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        /* Estilo para "imagem" do jogador sem imagem */
+        .player-card .player-initials {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: var(--red-flamengo);
+            color: var(--white);
+            font-size: 3em;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 15px auto;
+            border: 3px solid var(--black-flamengo);
+        }
+
+        .player-card h3 {
+            font-size: 1.5em;
+            color: var(--black-flamengo);
+            margin-bottom: 5px;
+        }
+
+        .player-card p {
+            font-size: 1em;
+            color: var(--dark-gray);
+            margin-bottom: 0;
+        }
+
+        /* Notícias */
+        .news-item {
+            background-color: var(--white);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .news-item:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .news-item h3 {
+            font-size: 1.8em;
+            color: var(--red-flamengo);
+            margin-bottom: 10px;
+        }
+
+        .news-item p {
+            font-size: 1em;
+            color: var(--dark-gray);
+            margin-bottom: 0; /* Removido margin-bottom do parágrafo, já que o link foi removido */
+        }
+
+        /* O link .read-more foi removido, então não precisa de estilo para ele */
+
+
+        /* Rodapé */
+        footer {
+            background-color: var(--black-flamengo);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            border-top: 5px solid var(--red-flamengo);
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        footer a {
+            color: var(--white);
+            text-decoration: underline;
+            margin: 0 5px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--red-flamengo);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header .logo-text {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+                margin-bottom: 15px;
+            }
+
+            header nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            header nav ul li {
+                margin: 5px 0;
+            }
+
+            .hero-section h2 {
+                font-size: 2.5em;
+            }
+
+            .hero-section p {
+                font-size: 1.1em;
+            }
+
+            .content-section {
+                padding: 40px 0;
+            }
+
+            .content-section h2 {
+                font-size: 2em;
+            }
+
+            .player-grid {
+                grid-template-columns: 1fr; /* Uma coluna em telas menores */
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            .hero-section h2 {
+                font-size: 2em;
+            }
+
+            .hero-section p {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="content-wrapper">
-        <h1>Flamengo: Uma Paixão Rubro-Negra</h1>
+    <header>
+        <div class="container">
+            <span class="logo-text">CRF</span>
+            <h1>Clube de Regatas do Flamengo</h1>
+            <nav>
+                <ul>
+                    <li><a href="#historia">História</a></li>
+                    <li><a href="#titulos">Títulos</a></li>
+                    <li><a href="#elenco">Elenco Atual</a></li>
+                    <li><a href="#noticias">Notícias</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-        <hr class="section-divider">
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <h2>Paixão que Não se Mede!</h2>
+                <p>O Clube de Regatas do Flamengo é um dos maiores e mais vitoriosos clubes de futebol do Brasil e do mundo.</p>
+                </div>
+        </section>
 
-        <h2>Bem-Vindos à Nação!</h2>
-        <p>Explore a rica história, os grandes feitos e a paixão inabalável que move milhões de torcedores em todo o mundo. O **Clube de Regatas do Flamengo** não é apenas um time de futebol; é um fenômeno cultural, um símbolo de garra e superação.</p>
+        <section id="historia" class="content-section">
+            <div class="container">
+                <h2>Nossa História</h2>
+                <p>Fundado em 17 de novembro de 1895, o Flamengo nasceu para o remo e, com o tempo, abraçou o futebol, tornando-se uma paixão nacional. Sua trajetória é marcada por grandes glórias, ídolos inesquecíveis e uma torcida incomparável.</p>
+                <p>Desde os primeiros campeonatos estaduais até as conquistas da Libertadores e Mundiais, o Flamengo construiu uma história rica em vitórias e superações.</p>
+            </div>
+        </section>
 
-        <hr class="section-divider">
+        <section id="titulos" class="content-section bg-light">
+            <div class="container">
+                <h2>Principais Títulos</h2>
+                <ul>
+                    <li><strong>Mundial de Clubes:</strong> 1981</li>
+                    <li><strong>Copa Libertadores da América:</strong> 1981, 2019, 2022</li>
+                    <li><strong>Campeonato Brasileiro:</strong> 1980, 1982, 1983, 1987, 1992, 2009, 2019, 2020</li>
+                    <li><strong>Copa do Brasil:</strong> 1990, 2006, 2013, 2022</li>
+                    <li><strong>Campeonato Carioca:</strong> (Muitos!)</li>
+                </ul>
+                <p>E muitos outros títulos estaduais e torneios importantes!</p>
+            </div>
+        </section>
 
-        <h2>História de Glórias</h2>
-        <p>Fundado em **17 de novembro de 1895**, o Flamengo nasceu das águas, com o remo sendo sua primeira modalidade. Rapidamente, porém, o futebol ganhou destaque, e a camisa rubro-negra se tornou sinônimo de excelência e conquistas.</p>
-        <p>Desde os primórdios, o Flamengo colecionou títulos, formando elencos lendários e marcando seu nome na história do esporte. A década de 80, com Zico à frente, é um marco insuperável, coroada com a conquista da **Copa Libertadores da América** e do **Mundial de Clubes** em 1981.</p>
+        <section id="elenco" class="content-section">
+            <div class="container">
+                <h2>Elenco Atual (Exemplo)</h2>
+                <div class="player-grid">
+                    <div class="player-card">
+                        <div class="player-initials">JG</div>
+                        <h3>Jorginho</h3>
+                        <p>Meio-campo</p>
+                    </div>
+                    <div class="player-card">
+                        <div class="player-initials">GA</div>
+                        <h3>Giorgian De Arrascaeta</h3>
+                        <p>Meia</p>
+                    </div>
+                    <div class="player-card">
+                        <div class="player-initials">BH</div>
+                        <h3>Bruno Henrique</h3>
+                        <p>Atacante</p>
+                    </div>
+                    <div class="player-card">
+                        <div class="player-initials">PD</div>
+                        <h3>Pedro</h3>
+                        <p>Atacante</p>
+                    </div>
+                </div>
+                <p>Este é apenas um exemplo. O elenco real pode ser encontrado no site oficial do Flamengo.</p>
+            </div>
+        </section>
 
-        <hr class="section-divider">
+        <section id="noticias" class="content-section bg-light">
+            <div class="container">
+                <h2>Últimas Notícias (Exemplo)</h2>
+                <article class="news-item">
+                    <h3>Flamengo vence clássico e assume liderança do Campeonato!</h3>
+                    <p>Em uma partida emocionante, o Mengão superou o rival e conquistou três pontos importantes.</p>
+                    </article>
+                <article class="news-item">
+                    <h3>Reforço de peso chega para a próxima temporada</h3>
+                    <p>O clube anuncia a contratação de um novo jogador para fortalecer o elenco.</p>
+                    </article>
+            </div>
+        </section>
+    </main>
 
-        <h2>Os Títulos Mais Marcantes</h2>
-        <ul>
-            <li>**Campeonato Brasileiro**: O Flamengo é um dos maiores vencedores do Campeonato Brasileiro, com diversas taças que atestam sua hegemonia no cenário nacional.</li>
-            <li>**Copa Libertadores da América**: Bicampeão da América, o Flamengo demonstrou sua força e tradição em competições continentais, levantando a taça em 1981 e novamente em 2019.</li>
-            <li>**Mundial de Clubes**: O título mundial de 1981 é um orgulho para a nação rubro-negra, consolidando o Flamengo como um dos maiores clubes do planeta.</li>
-            <li>**Copa do Brasil**: Múltiplas conquistas da Copa do Brasil reforçam a vocação copeira do clube.</li>
-            <li>**Campeonato Carioca**: O domínio no Campeonato Estadual é uma constante na trajetória rubro-negra, com inúmeros troféus.</li>
-        </ul>
-
-        <hr class="section-divider">
-
-        <h2>Mais Que Futebol</h2>
-        <p>O Flamengo vai além dos gramados. É um clube poliesportivo com destaque em diversas modalidades como basquete, natação e ginástica. A multidisciplinaridade reflete a grandiosidade e a abrangência da instituição.</p>
-
-        <hr class="section-divider">
-
-        <h2>A Nação Rubro-Negra</h2>
-        <p>Nenhum clube no Brasil possui uma torcida tão vasta e apaixonada quanto o Flamengo. A "**Nação Rubro-Negra**" é um espetáculo à parte, seja nos estádios, nas ruas ou em qualquer canto do mundo. O apoio incondicional e o fervor dos torcedores são um diferencial, impulsionando o time em cada partida.</p>
-
-        <hr class="section-divider">
-
-        <h2>Nosso Compromisso</h2>
-        <p>O Flamengo, além de buscar a excelência esportiva, tem um compromisso social, atuando em projetos e iniciativas que visam o desenvolvimento da comunidade e a formação de novos talentos.</p>
-
-        <hr class="section-divider">
-
-        <footer>
-            <p>**Flamengo: Onde a paixão nunca tem fim.**</p>
-        </footer>
-    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Flamengo - Desenvolvido por um torcedor apaixonado.</p>
+            <p>Siga-nos nas redes sociais: <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a></p>
+        </div>
+    </footer>
 </body>
 </html>
